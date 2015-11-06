@@ -27,6 +27,15 @@ python app.py
 
 Visit sendgrid console, then SETTINGS -> Mail Settings -> Event Notification.
 
+## Note
+
+The tool will encrypt email with sha256 and salt before insert to bigquery.
+You can obtain hash value as following.
+
+```
+python -c "import hashlib; print hashlib.sha256('user@raw.email' + 'SALT').hexdigest()"
+```
+
 ## TODO
 
 Deploy to AWS Lambda + AWS API Gateway. I tried it, however I faced with following problem.
