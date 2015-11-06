@@ -1,0 +1,32 @@
+auth:
+  project_id: 123456789012
+  service_account: 123456789012-xxxxxxxxxxxxxxxxxxxxxxxxxx@developer.gserviceaccount.com
+  key: config/xxxxxxxxx.p12
+bigquery:
+  dataset: sendgrid
+  table_name: mail_log
+  table_counts: 365 # The number of tables that you'd like to create
+  schemas: 
+      - name: unixtimestamp
+        type: INTEGER
+        mode: nullable
+      - name: datetime
+        type: STRING
+        mode: nullable
+      - name: sendgrid_timestamp
+        type: INTEGER
+        mode: nullable
+      - name: email
+        type: STRING
+        mode: nullable
+      - name: event
+        type: STRING
+        mode: nullable
+      - name: reason
+        type: STRING
+        mode: nullable
+      - name: response
+        type: STRING
+        mode: nullable
+  salt: xxxxxxx
+
