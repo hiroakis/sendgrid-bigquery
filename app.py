@@ -45,8 +45,18 @@ class SendGridEventHandler(web.RequestHandler):
             self.content_type = 'application/json'
             self.finish({"message": "Service Unavailable: please retry."})
 
+class HealthCheckHandler(web.RequestHandler):
+
+    @gen.coroutine
+    def get(self):
+        self.set_status(200)
+        self.content_type = 'application/json'
+        self.finish({"message": "healthy"})
+
+
 app = web.Application([
     (r"/", SendGridEventHandler),
+    (r"/health", HealthCheckHandler),
 ])
 
 if __name__ == '__main__':
